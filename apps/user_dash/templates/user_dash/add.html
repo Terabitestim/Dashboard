@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/dashboard">Dashboard</a>
+    <h2>Add a new user</h2>
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{message}}</p>
+        {% endfor %}
+    {% endif %}
+    <form action="/users/process" method="post">
+        {% csrf_token %}
+        <p>Email Address:<input type="text" name="email"></p>
+        <p>First Name:<input type="text" name="first_name"></p>
+        <p>Last Name:<input type="text" name="last_name"></p>
+        <p>Password:<input type="text" name="password"></p>
+        <p>Confirm Password:<input type="text" name="conf_pass"></p>
+        <button>Create</button>
+    </form>
+</body>
+</html>

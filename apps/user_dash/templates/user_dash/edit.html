@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/dashboard"><button>Return To Dashboard</button></a>
+    <h2>Edit User # {{users.id}}</h2>
+    <p>Edit information:</p>
+    <form action="/users/update/{{users.id}}" method="post">
+        {% csrf_token %}
+        <p>Email Address: <input type="text" name="email" placeholder="{{users.email}}"></p>
+        <p>First Name: <input type="text" name="first_name" placeholder="{{users.first_name}}"></p>
+        <p>Last Name: <input type="text" name="last_name" placeholder="{{users.last_name}}"></p>
+        <select name="auth_level">
+            <option value="9">Admin</option>
+            <option value="0">Normal</option>
+        </select>
+        <p><button>Save</button></p>
+    </form>
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{message}}</p>
+        {% endfor %}
+    {% endif %}
+    <p>Edit password:</p>
+    <form action="/users/update/{{users.id}}" method="post">
+        {% csrf_token %}
+        <p>Password: <input type="text" name="password"></p>
+        <p>Confirm Password: <input type="text" name="conf_pass"></p>
+        <p><button>Update Password</button></p>
+    </form>
+</body>
+</html>

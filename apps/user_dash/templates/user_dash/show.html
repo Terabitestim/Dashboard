@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/dashboard">Dashboard</a>
+    <h4>{{users.first_name}} {{users.last_name}}</h4>
+    <p>Registered At: {{users.created_at}}</p>
+    <p>Users ID: {{users.id}}</p>
+    <p>Email Address: {{users.email}}</p>
+    <p>Description: {{users.desc}}</p>
+    <form action="/users/post/{{users.id}}" method="post">
+        {% csrf_token %}
+        <textarea name="post" cols="35" rows="5"></textarea>
+        <p><button>Post</button></p>
+    </form>
+    {% for post in posts %}
+    <!-- Don't know how to query for this -->
+        <p>{{post.created_by.first_name}} Wrote</p>
+        <textarea placeholder="{{post.post}}" cols="35" rows="5"></textarea>
+    {% endfor %}
+</body>
+</html>

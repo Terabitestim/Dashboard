@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+    <a href="/dashboard">Dashboard</a>
+    <h2>Edit profile</h2>
+    <p>Edit information</p>
+    <form action="/users/profile/update/{{request.session.id}}" method="post">
+        <p>Email Address:</p>
+        <p><input type="text" name="email"></p>
+        <p>First Name:</p>
+        <p><input type="text" name="first_name"></p>
+        <p>Last Name:</p>
+        <p><input type="text" name="last_name"></p>
+        <button>Save</button>
+    </form>
+    <form action="/users/profile/update/{{request.session.id}}" method="post">
+        <p>Password:</p>
+        <p><input type="text" name="password"></p>
+        <p>Confirm Password:</p>
+        <p><input type="text" name="conf_pass"></p>
+        <button>Update Password</button>
+    </form>
+    <form action="/users/profile/update/{{request.session.id}}" method="post">
+        <p>Description:</p>
+        <textarea name="desc" cols="35" rows="5"></textarea>
+        <button>Save</button>
+    </form>
+<body>
+</body>
+</html>
